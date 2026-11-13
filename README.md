@@ -14,7 +14,7 @@ A beginner-friendly Google Colab notebook that uses LangGraph to classify TaskNe
 1. Clone this repository with `git clone https://github.com/Shiral47/Homework3.git` or open its GitHub page.
 2. Open [TaskNest Ticket Routing in Colab](https://colab.research.google.com/github/Shiral47/Homework3/blob/main/TaskNest%20Ticket%20Routing.ipynb).
 3. In Colab, add an `OPENAI_API_KEY` secret and allow the notebook to access it.
-4. Run the cells from top to bottom. Edit the sample ticket in the final cell to route another request.
+4. Run the cells from top to bottom. Type your customer support ticket when the final cell prompts you. The notebook then displays its category, assigned team, and confirmation reply.
 
 The TaskNest notebook reads the OpenAI API key from Colab Secrets at runtime. Never hardcode a key, display it in outputs, commit it, or upload it to a GitHub repository. Keep secrets private and revoke any key that becomes exposed.
 
