@@ -24,3 +24,16 @@
 
 ## Git record
 - Record the completed setup and project artifacts in Git history with a commit, then publish the `main` branch with upstream tracking after authentication and account verification.
+
+
+## TaskNest support ticket routing notebook
+- Create a minimal, clean Colab notebook using LangGraph to route TaskNest customer support tickets.
+- Install `langgraph` and `langchain-openai` in the first code cell.
+- Load `OPENAI_API_KEY` from Colab Secrets via `google.colab.userdata`; do not use getpass or hardcode, display, or save the key.
+- Configure `ChatOpenAI` with a global model-name constant (default `gpt-4o-mini`) and `temperature=0`.
+- Define a Pydantic `TicketClassification` schema with a Literal category of billing, technical, or general.
+- Define TypedDict state with exactly four fields: ticket, category, team, and reply.
+- The classify node reads the ticket, uses structured output, and returns only category. The conditional router uses only the category and makes no LLM call.
+- Route to plain-Python billing, technical, and general team nodes that set the requested fixed team names and replies.
+- Wire START -> classify -> conditional team node -> END, compile as `graph`, and visualize with `draw_mermaid_png()`.
+- Include a sample ticket invocation and Colab Secrets setup instructions.

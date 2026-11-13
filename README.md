@@ -1,17 +1,23 @@
-# Creative Everyday Object Ideas
+# TaskNest Support Ticket Router
 
-A beginner-friendly Google Colab notebook that asks for an everyday object and uses the OpenAI Responses API to suggest one unusual, creative, practical use for it.
+A beginner-friendly Google Colab notebook that uses LangGraph to classify TaskNest customer support tickets and route each ticket to the appropriate team. An LLM selects the category; simple Python team nodes return fixed confirmation replies.
 
 ## Repository structure
 
-- `to-do app.ipynb` — the Colab notebook with setup, secure API-key entry, and idea generation.
-- `README.md` — project overview and instructions.
+- `TaskNest Ticket Routing.ipynb` — ticket classification, conditional routing, and graph visualization.
+- `to-do app.ipynb` — an OpenAI Responses API notebook for creative everyday object ideas.
 - `prompt.md` — project requirements and technical specifications.
+- `README.md` — project overview and run instructions.
 
-## Open and run in Google Colab
+## Run the TaskNest notebook in Google Colab
 
-1. Clone the repository with `git clone https://github.com/Shiral47/Homework3.git` (or download it from GitHub).
-2. Open the notebook from the repository in Google Colab: [Open `to-do app.ipynb` in Colab](https://colab.research.google.com/github/Shiral47/Homework3/blob/main/to-do%20app.ipynb).
-3. In Colab, run the notebook cells from top to bottom. When prompted, enter an everyday object.
+1. Clone this repository with `git clone https://github.com/Shiral47/Homework3.git` or open its GitHub page.
+2. Open [TaskNest Ticket Routing in Colab](https://colab.research.google.com/github/Shiral47/Homework3/blob/main/TaskNest%20Ticket%20Routing.ipynb).
+3. In Colab, add an `OPENAI_API_KEY` secret and allow the notebook to access it.
+4. Run the cells from top to bottom. Edit the sample ticket in the final cell to route another request.
 
-An OpenAI API key is required at runtime. The notebook asks for it using Python's `getpass` so it is not echoed as you type. Keep the key private: never hardcode it in the notebook, include it in outputs, commit it, or upload it to a GitHub repository. If a key is ever exposed, revoke it and create a new one.
+The TaskNest notebook reads the OpenAI API key from Colab Secrets at runtime. Never hardcode a key, display it in outputs, commit it, or upload it to a GitHub repository. Keep secrets private and revoke any key that becomes exposed.
+
+## Run the everyday object notebook
+
+Open [to-do app in Colab](https://colab.research.google.com/github/Shiral47/Homework3/blob/main/to-do%20app.ipynb), run the cells in order, and enter an object when prompted. This notebook asks for an OpenAI API key at runtime using `getpass`; keep it out of saved outputs, source code, commits, and GitHub.
