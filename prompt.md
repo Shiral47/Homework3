@@ -37,3 +37,14 @@
 - Route to plain-Python billing, technical, and general team nodes that set the requested fixed team names and replies.
 - Wire START -> classify -> conditional team node -> END, compile as `graph`, and visualize with `draw_mermaid_png()`.
 - Include a sample ticket invocation and Colab Secrets setup instructions.
+
+
+## Final prompt given to Codex
+
+> Build a minimal, clean Google Colab notebook for TaskNest support ticket routing using LangGraph. Install `langgraph` and `langchain-openai` in the first cell. Load `OPENAI_API_KEY` from Colab Secrets with `google.colab.userdata`, never hardcode or print it, and configure `ChatOpenAI` with a global model constant and temperature 0. Use a Pydantic structured-output schema whose category is one of billing, technical, or general. Define graph state with exactly ticket, category, team, and reply. The LLM classify node returns only category; a non-LLM conditional router reads category and routes to plain-Python billing, technical, or general team nodes that return the specified fixed team names and confirmation replies. Wire START -> classify -> team -> END, compile as `graph`, and include a Mermaid PNG graph drawing. Include at least six of your own test tickets, at least two for each team, and at least one ambiguous ticket such as “The app crashes every time I try to pay.” Run the examples through the graph and print the category and reply for each. Document how to set up Colab Secrets and run the notebook.
+
+## Changes made across rounds
+
+1. The first TaskNest version included one sample billing ticket and the graph drawing.
+2. A later iteration briefly changed the sample to an interactive `input()` prompt. After the request to return to the notebook examples, that prompt was removed and the included sample-ticket approach was restored.
+3. The final iteration replaced the single example with seven runnable tickets: two billing, two technical, two general, and one ambiguous payment-crash ticket. The example cell now prints each ticket, its LLM-selected category, and its fixed team reply. The README was updated to describe these examples.
